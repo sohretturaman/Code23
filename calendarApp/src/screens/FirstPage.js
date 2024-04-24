@@ -3,12 +3,12 @@ import React from "react";
 
 const winWidth = Dimensions.get("window").width;
 const winHeight = Dimensions.get("window").height;
-const App = () => {
+const FirstPage = () => {
 
   return (
     <View style={{ height:winHeight, width:winWidth,alignItems: "center" }} >
       <View style={{ width: winWidth* 0.8, height: winWidth* 1, marginTop: winWidth * 0.15}}>
-      <Image source={require("./images/splash.jpg")} style={{
+      <Image source={require("../assets/images/splash.jpg")} style={{
          width: winWidth* 0.8, height: winWidth* 1 ,
          borderBottomLeftRadius: winWidth * 0.9, borderBottomRightRadius: winWidth * 0.9}} />
       </View>
@@ -27,6 +27,6 @@ const App = () => {
   );
 };
 
-export default App;
+export default FirstPage;
 
 const styles = StyleSheet.create({});

@@ -5,19 +5,19 @@ import styles from "./style";
 
 const winWidth = Dimensions.get('window').width;
 const winHeight = Dimensions.get('window').height;
-
+//defined proptypes and multiple styles
 const WeekDayItem = (props) => {
   const {day} = props;
   
   return (
     <View
     
-    style={{
+    style={[styles.borderShadow,{
       justifyContent: 'center',
       alignItems: 'center',
       height: winWidth * 0.125,
       width: winWidth * 0.12,
-    }}>
+    }]}>
     <Text
       style={{
         fontSize: winWidth * 0.035,

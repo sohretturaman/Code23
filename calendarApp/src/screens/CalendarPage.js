@@ -9,10 +9,11 @@ import {
   import React from 'react';
 import Title from '../component/calendarComps/Title';
 import WeekDayItem from '../component/calendarComps/WeekDayItem';
+import Button from '../component/CalendarButton';
   
   const winWidth = Dimensions.get('window').width;
   const winHeight = Dimensions.get('window').height;
-  //create ann object instance for other components
+  
   const CalendarPage = () => {
     const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   
@@ -27,11 +28,14 @@ import WeekDayItem from '../component/calendarComps/WeekDayItem';
   
     return (
       <ScrollView
+      showsVerticalScrollIndicator={true}
         style={{
           height: winHeight,
           width: winWidth,
           backgroundColor: '#f6f6f6',
           paddingBottom: winWidth * 0.3,
+        
+          marginBottom:winHeight*0.05
         }}>
         {/* title */}
          <Title />
@@ -63,27 +67,7 @@ import WeekDayItem from '../component/calendarComps/WeekDayItem';
             width: winWidth * 0.9,
           }}>
           {daysOfMonth.map((day, index) => (
-            <View
-              key={index}
-              style={{
-                width: winWidth * 0.12,
-                height: winWidth * 0.12,
-                justifyContent: 'center',
-                alignItems: 'center',
-                backgroundColor: day == 17 ? '#5451D6' : 'transparent',
-                borderRadius: winWidth * 0.12,
-              }}>
-              {
-                <Text
-                  style={{
-                    fontSize: winWidth * 0.035,
-                    color: day==17 ? 'white' : 'black',
-                    fontWeight: '500',
-                  }}>
-                  {day}
-                </Text>
-              }
-            </View>
+             <Button key={index} day={day}/>
           ))}
         </View>
   
