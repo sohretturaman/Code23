@@ -1,32 +1,33 @@
-import {
-  Dimensions,
-  Image,
-  ImageBackground,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {Dimensions, Image, ScrollView, Text, View} from 'react-native';
 import React from 'react';
+import styles from './styles';
+import {homeIcon} from '../assets/icons/index';
+import {graphicImage, pImage} from '../assets/images/index';
+import {Button} from '../components/button';
+import {Smallbutton} from '../components/smallButton';
 
 const winWidth = Dimensions.get('window').width;
 const winHeight = Dimensions.get('window').height;
-const App2 = () => {
+const SecondScreen = () => {
+  //used styles for border shadow
+  //dedicated  props in  button component
   const TotalSentItem = () => {
     return (
       <View
-        style={{
-          height: winWidth * 0.2,
-          width: winWidth * 0.9,
-          justifyContent: 'space-between',
-          flexDirection: 'row',
-          alignSelf: 'center',
-          backgroundColor: 'white',
-          alignItems: 'center',
-          borderRadius: winWidth * 0.04,
-          marginBottom: winWidth * 0.02,
-          elevation: 1,
-        }}>
+        style={[
+          styles.borderShadow,
+          {
+            height: winWidth * 0.2,
+            width: winWidth * 0.9,
+            justifyContent: 'space-between',
+            flexDirection: 'row',
+            alignSelf: 'center',
+            backgroundColor: 'white',
+            alignItems: 'center',
+            borderRadius: winWidth * 0.04,
+            marginBottom: winWidth * 0.02,
+          },
+        ]}>
         <View
           style={{
             height: winWidth * 0.16,
@@ -37,7 +38,7 @@ const App2 = () => {
             marginTop: winWidth * 0.02,
           }}>
           <Image
-            source={require('./src/assets/images/pImage.jpg')}
+            source={pImage}
             style={{
               width: winWidth * 0.15,
               height: winWidth * 0.15,
@@ -145,27 +146,13 @@ const App2 = () => {
               borderColor: 'gray',
               marginTop: winWidth * 0.02,
             }}>
-            <View
-              style={{
-                height: winWidth * 0.12,
-                width: winWidth * 0.3,
-                paddingHorizontal: winWidth * 0.02,
-                justifyContent: 'center',
-                backgroundColor: '#42154E',
-                alignItems: 'center',
-                borderRadius: winWidth * 0.04,
-                borderColor: '#42154E',
-                borderWidth: winWidth * 0.005,
-              }}>
-              <Text
-                style={{
-                  fontSize: winWidth * 0.05,
-                  color: 'white',
-                  fontWeight: '500',
-                }}>
-                Savings
-              </Text>
-            </View>
+            {/**first button which comes component */}
+            <Button
+              title={'savings'}
+              onClick={() => {
+                console.log('clicked on savings button ');
+              }}
+            />
             <View
               style={{
                 height: winWidth * 0.12,
@@ -193,7 +180,7 @@ const App2 = () => {
             paddingHorizontal: winWidth * 0.02,
             alignItems: 'center',
             marginVertical: winWidth * 0.02,
-           marginTop:winWidth*0.04
+            marginTop: winWidth * 0.04,
             //  backgroundColor:'red'
           }}>
           {/**image header */}
@@ -226,7 +213,7 @@ const App2 = () => {
             </Text>
           </View>
           <Image
-            source={require('./src/assets/images/graphic.png')}
+            source={graphicImage}
             style={{
               width: winWidth,
               height: winWidth * 0.55,
@@ -268,24 +255,9 @@ const App2 = () => {
               Target Completed %90
             </Text>
           </View>
-          <View
-            style={{
-              height: winWidth * 0.08,
-              width: winWidth * 0.2,
-              justifyContent: 'center',
-              backgroundColor: '#E47C57',
-              borderRadius: winWidth * 0.02,
-              alignItems: 'center',
-            }}>
-            <Text
-              style={{
-                fontSize: winWidth * 0.04,
-                color: 'white',
-                fontWeight: '500',
-              }}>
-              View
-            </Text>
-          </View>
+          {/** small button */}
+
+          <Smallbutton title={'View'} />
         </View>
       </View>
 
@@ -337,7 +309,7 @@ const App2 = () => {
           }}>
           <Image
             tintColor={'gray'}
-            source={require('./src/assets/images/home.png')}
+            source={homeIcon}
             style={{
               width: winWidth * 0.07,
               height: winWidth * 0.07,
@@ -354,7 +326,7 @@ const App2 = () => {
           }}>
           <Image
             tintColor={'gray'}
-            source={require('./src/assets/images/home.png')}
+            source={homeIcon}
             style={{
               width: winWidth * 0.07,
               height: winWidth * 0.07,
@@ -372,7 +344,7 @@ const App2 = () => {
           }}>
           <Image
             tintColor={'gray'}
-            source={require('./src/assets/images/home.png')}
+            source={homeIcon}
             style={{
               width: winWidth * 0.07,
               height: winWidth * 0.07,
@@ -389,7 +361,7 @@ const App2 = () => {
           }}>
           <Image
             tintColor={'gray'}
-            source={require('./src/assets/images/home.png')}
+            source={homeIcon}
             style={{
               width: winWidth * 0.07,
               height: winWidth * 0.07,
@@ -402,6 +374,4 @@ const App2 = () => {
   );
 };
 
-export default App2;
-
-const styles = StyleSheet.create({});
+export default SecondScreen;
